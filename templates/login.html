@@ -1,0 +1,52 @@
+ 
+</html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>A Reusable Contact Form In Bootstrap - reusable form</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="form.css" >
+        <script src="form.js"></script>
+    </head>
+    <body >
+			<p> {{error}} </p>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <h2>LogIn</h2> 
+                     <form action="/login" method="POST">
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <label  > Email:</label>
+                                <input type="email" name="email" class="form-control" maxlength="50">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label  > Password:</label>
+                                <input type="password" name="password"class="form-control" maxlength="50">
+                            </div>
+                        </div>
+                         
+                         
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <button type="submit" class="btn btn-lg btn-success btn-block"  >LogIn </button>
+                            </div>
+						</div>
+						<div class="row">
+								<div class="col-sm-12 form-group">
+									 <a href="/registerationForm">Register Here</a> 
+								</div>
+							</div>
+                    </form>
+                     </div>
+            </div>
+        </div>
+    </body>
+</html>

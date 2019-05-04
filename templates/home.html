@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Your Cart</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Little Closet template">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename='css/bootstrap.min.css')}} />
+<link href={{url_for('static', filename='css/font-awesome.min.css')}}/>
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename='css/owl.carousel.css')}}/>
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename='css/owl.theme.default.css')}}/>
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename='css/animate.css')}}/>
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename='css/main_styles.css')}}/>
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename='css/responsive.css')}}/>
+<link rel="stylesheet" href={{ url_for('static', filename='css/home.css') }} />
+<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
+</head>
+<body>
+
+<!-- Menu -->
+
+<div class="super_container">
+
+	<!-- Header -->
+
+	<header class="header">
+		<div class="header_overlay"></div>
+		<div class="header_content d-flex flex-row align-items-center justify-content-start">
+			<div class="logo">
+                    <a href="/">
+					<div class="d-flex flex-row align-items-center justify-content-start">
+						<div><img src={{url_for('static', filename='images/logo_1.png')}} id="cartIcon" alt=""></div>
+						<div>The Task Mart</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="header_right d-flex flex-row align-items-center justify-content-start ml-auto">
+				<!-- Search -->
+				<div class="header_search">
+					<form action="#" id="header_search_form">
+						<input type="text" class="search_input"  placeholder="Search Item" id = "searchName" required="required">
+						<button class="header_search_button" ><img src={{url_for('static', filename='images/search.png')}} alt=""></button>
+					</form>
+				</div>
+				<!-- User -->
+ 				<!-- Cart -->
+				<div class="cart"><a href="/cart"><div><img class="svg" src={{url_for('static', filename='images/cart.svg')}} alt="https://www.flaticon.com/authors/freepik"></div></a></div>
+
+				<div></div>
+				{% if not loggedIn %}
+				<div class="cart" id="signInButton" >
+				  <a href="/loginForm">Sign In</a>
+				</div>
+
+				{% else %}
+
+
+				<div class="cart" id="signInButton" >
+				  <a href="/loginForm">Hello,{{firstName}}</a>
+				</div>
+
+				<div class="cart" id="signInButton" >
+				  <a href="/logout">Sign Out</a>
+				</div>
+
+				{% endif %}
+ 				<!-- Phone -->
+
+			</div>
+		</div>
+	</header>
+
+	<div class="super_container_inner">
+		<div class="super_overlay"></div>
+
+
+
+		<div class="products">
+			<div class="container">
+				<div class="row">
+
+				</div>
+
+				<div class="row products_row">
+                        {% for data in itemData %}
+                        {% for row in data %}
+					<!-- Product -->
+					<div class="col-xl-3 col-md-6">
+						<div class="product">
+							<div class="product_content">
+								<div class="product_info d-flex flex-row align-items-start justify-content-start">
+									<div>
+                                            <div class="product_image">
+                                                    <a href="/productDescription?productId={{row[0]}}">
+                                                <img  src={{ url_for('static', filename='uploads/' + row[4]) }} id="itemImage" alt=""/>
+                                                    </a>
+                                            </div>
+										<div>
+                                            <div class="product_name"><a>{{row[1]}}</a></div>
+                                         </div>
+                                         <div>
+                                                <div class="product_name">${{row[2]}}</div>
+                                         </div>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+                    {% endfor %}
+                    {% endfor %}
+
+				</div>
+
+			</div>
+		</div>
+
+
+
+		<footer class="footer">
+			<div class="footer_content">
+				<div class="container">
+					<div class="row">
+
+						<!-- About -->
+						<div class="col-lg-4 footer_col">
+							<div class="footer_about">
+								<div class="footer_logo">
+									<a href="#">
+										<div class="d-flex flex-row align-items-center justify-content-start">
+											<div class="footer_logo_icon"><img src="images/logo_2.png" alt=""></div>
+											<div>The Task Mart</div>
+										</div>
+									</a>
+								</div>
+								<div class="footer_about_text">
+									<p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse potenti. Fusce venenatis vel velit vel euismod.</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Footer Links -->
+						<div class="col-lg-4 footer_col">
+							<div class="footer_menu">
+								<div class="footer_title">Support</div>
+								<ul class="footer_list">
+									<li>
+										<a href="#"><div>Customer Service </div></a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+
+						<!-- Footer Contact -->
+						<div class="col-lg-4 footer_col">
+							<div class="footer_contact">
+								<div class="footer_title">Stay in Touch</div>
+								<div class="newsletter">
+									<form action="#" id="newsletter_form" class="newsletter_form">
+										<input type="email" class="newsletter_input" placeholder="Subscribe to our Newsletter" required="required">
+										<button class="newsletter_button">+</button>
+									</form>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	</div>
+
+</div>
+
+<script src={{ url_for('static', filename='js/jquery-3.2.1.min.js') }}></script>
+<script src={{ url_for('static', filename='js/popper.js') }}></script>
+<script src={{ url_for('static', filename='js/bootstrap.min.js') }}></script>
+<script src={{ url_for('static', filename='js/TweenMax.min.js') }}></script>
+<script src={{ url_for('static', filename='js/TimelineMax.min.js') }}></script>
+<script src={{ url_for('static', filename='js/ScrollMagic.min.js') }}></script>
+<script src={{ url_for('static', filename='js/animation.gsap.min.js') }}></script>
+<script src={{ url_for('static', filename='js/ScrollToPlugin.min.js') }}></script>
+<script src={{ url_for('static', filename='js/owl.carousel.js') }}></script>
+<script src={{ url_for('static', filename='js/easing.js') }}></script>
+<script src={{ url_for('static', filename='js/progressbar.min.js') }}></script>
+<script src={{ url_for('static', filename='js/parallax.min.js') }}></script>
+<script src={{ url_for('static', filename='js/custom.js') }}></script>
+</body>
+</html>
